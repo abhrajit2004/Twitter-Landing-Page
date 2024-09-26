@@ -44,7 +44,7 @@ Presenting A Twitter Landing Page Clone done using HTML and Tailwind CSS.
    ```bash
    git clone <your forked repository link>
    ```
-2. 2. **Change directory**:
+2. **Change directory**:
 
     ```bash
     cd Twitter-Landing-Page
