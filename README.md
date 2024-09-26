@@ -22,7 +22,12 @@ Presenting A Twitter Landing Page Clone done using HTML and Tailwind CSS.
    ```bash
    git clone <your forked repository link>
    ```
-2. **Install Dependencies**:
+2. **Change directory**:
+
+    ```bash
+    cd Twitter-Landing-Page
+    ```
+4. **Install Dependencies**:
    
     ```bash
    npm i
