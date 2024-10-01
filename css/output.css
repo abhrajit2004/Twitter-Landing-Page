@@ -792,6 +792,8 @@ video {
   background-color: rgb(22 24 28 / var(--tw-bg-opacity));
 }
 
+
+
 .bg-\[\#1d9bf0\] {
   --tw-bg-opacity: 1;
   background-color: rgb(29 155 240 / var(--tw-bg-opacity));
@@ -801,6 +803,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(47 51 54 / var(--tw-bg-opacity));
 }
+
+.bg-\[\#1a8cd8\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 140 216 / var(--tw-bg-opacity));
+}
+
 
 .bg-black {
   --tw-bg-opacity: 1;
@@ -816,6 +824,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
+
+.bg-green-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 101 52 / var(--tw-bg-opacity));
+}
+
 
 .bg-white {
   --tw-bg-opacity: 1;
@@ -970,6 +984,17 @@ video {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-\[\#1a8cd8\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 140 216 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#0a66c2\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(10, 102, 194 / var(--tw-bg-opacity));
+}
+
+
 .hover\:bg-green-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
@@ -1012,4 +1037,59 @@ video {
 
 .hover\:underline:hover {
   text-decoration-line: underline;
+}
+
+
+.transform {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+
+.hover\:scale-105:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:scale-110:hover {
+  --tw-scale-x: 1.10;
+  --tw-scale-y: 1.10;
+  transform: scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+
+.hover\:shadow-lg:hover {
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-shadow);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover\:h-full:hover {
+  height: 100%; /* Sets height to 100% on hover */
+}
+
+.hover\:w-full:hover {
+  width: 100%; /* Sets width to 100% on hover */
 }
