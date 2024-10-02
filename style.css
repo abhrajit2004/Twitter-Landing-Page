@@ -1,0 +1,41 @@
+/* Custom styles for the toggle switch */
+.toggle {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.toggle::before {
+    content: '';
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+.toggle.active {
+    background-color: #2ecc71; /* Green for active toggle */
+}
+.toggle.active::before {
+    transform: translateX(25px); /* Move switch to right */
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition for body color */
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Light mode styles */
+.light-mode {
+    background-color: white;
+    color: black;
+}
