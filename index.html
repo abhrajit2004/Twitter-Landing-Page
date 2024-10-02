@@ -16,20 +16,67 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Theme Toggle</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Theme</title>
+    <style>
+        /* Custom styles for the toggle switch */
+        .toggle {
+            width: 50px;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle::before {
+            content: '';
+            position: absolute;
+            width: 23px;
+            height: 23px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .toggle.active {
+            background-color: #2ecc71;
+        }
+        .toggle.active::before {
+            transform: translateX(25px);
+        }
+    </style>
 </head>
-<body class="bg-black text-white transition duration-500">
-    <div class="container mx-auto p-4 flex justify-between items-center">
-        <button id="theme-toggle" class="w-12 h-6 flex items-center bg-gray-600 rounded-full p-1 relative focus:outline-none">
-            <span class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform transform" id="toggle-circle"></span>
-        </button>
+<body class="bg-black text-white min-h-screen flex flex-col items-right">
+    <div class="flex justify-right w-full p-4">
+        <div class="toggle" id="theme-toggle"></div>
     </div>
 
-   
-
-    <script src="script.js"></script>
     
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Set initial theme based on localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.remove('bg-black', 'text-white');
+            body.classList.add('bg-white', 'text-black');
+            toggle.classList.add('active');
+        }
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            if (toggle.classList.contains('active')) {
+                body.classList.remove('bg-black', 'text-white');
+                body.classList.add('bg-white', 'text-black');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('bg-white', 'text-black');
+                body.classList.add('bg-black', 'text-white');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 
 </head>
 
