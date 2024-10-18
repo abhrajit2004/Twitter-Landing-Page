@@ -84,6 +84,14 @@ hr {
   /* 3 */
 }
 
+.active {
+  background-color: #1b1d1f; /* Highlight color */
+  color: white; /* Text color */
+  border-radius: 9999px; /* Make it fully rounded */
+}
+
+
+
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
