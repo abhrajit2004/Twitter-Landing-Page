@@ -11,15 +11,35 @@
     />
     <link rel="stylesheet" href="css/output.css" />
     <link rel="stylesheet" href="css/messages.css">
+    <script src="messages.js"></script> 
   </head>
   <body class="bg-black min-h-screen text-white">
     
     
     <!-- messgaes start -->
     <div id="messages">
-      <span>Messages</span>
+     <div id="messages_topper">
+      <span id="messgaes_top_span" >Messages</span>
       <img src="messages.png" alt="" id="img_messages1">
       <img src="expand.png" alt="" id="img_messages2">
+      <img src="expand.png" alt="" id="img_messages3">
+    </div> 
+
+    <div class="message_content">
+      <img src="Images/bill_gates.jpeg" alt="" class="message_profile">
+
+      <div class="message_msg">
+
+        <span class="message_name">Bill Gates</span>
+        <span class="message_mail">billg@microsoft.com</span>
+
+        <span class="date">19 Oct,2024</span>
+        <p class="msg">Hi Abhrajit , wanna work together?</p>
+
+
+      </div>
+
+    </div>
 
     </div> 
 
@@ -471,5 +491,32 @@
         </div>
       </div>
     </div>
+
+
+  <script>
+
+var up_button=document.getElementById('img_messages2');
+
+var down_button=document.getElementById('img_messages3');
+
+var messages=document.getElementById('messages');
+
+// var form1=document.getElementById('form1');
+
+up_button.onclick=function(){
+
+    messages.style.top='43%';
+    up_button.style.display="none";
+    down_button.style.display="flex";
+}
+
+down_button.onclick=function(){
+
+messages.style.top='93%';
+up_button.style.display="flex";
+down_button.style.display="none";
+}
+
+  </script>  
   </body>
 </html>
