@@ -1,14 +1,16 @@
 #messages{
     z-index: 5;
     position: fixed;
-    height: 60px;
+    height: 600px;
     width: 400px;
     /* background-color: yellow; */
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     /* justify-content: center; */
+    /* padding-top: 5px; */
 
     background-color: black;
+    /* border:2px solid white; */
     border-top: 0.6px solid rgb(25, 25, 25);
     border-left: 0.6px solid rgb(25, 25, 25);
     border-right: 0.6px solid rgb(25, 25, 25);
@@ -17,11 +19,78 @@
     border-style: outset;
     left:72%;
     top:93%;
-    
+    transition: 0.5s;
+
+}
+#messages_topper{
+    height: 60px;
+    width: 400px;
+    display: flex;
+    align-items: center;
 
 }
 
-#messages span{
+.message_content{
+
+
+    height: 80px;
+    width: 390px;
+    display: flex;
+    margin: 2px;
+    align-items: center;
+    background-color: black;
+    transition: all 0.3s;
+
+
+
+}
+
+.message_profile{
+
+    height: auto; 
+    max-width: 15%;
+    border-radius: 50%;
+
+}
+.message_content:hover{
+    background-color: rgb(33, 34, 35);
+}
+
+.message_msg{
+    /* background-color: rgb(214, 27, 27); */
+    height: 70px;
+    width: 315px;
+    margin-left: 15px;
+
+}
+.message_name{
+
+    font-size: 15px;
+    font-weight: 900;
+
+
+}
+
+.message_mail{
+    font-size: 10px;
+    color: gray;
+    margin-left: 15px;
+
+
+}
+.date{
+    font-size: 10px;
+    color: gray;
+    margin-left: 15px;
+
+}
+
+.msg{
+
+    margin:4px 0 0 5px;
+    color: rgb(151, 146, 146);
+}
+#messgaes_top_span{
     margin-left: 10px;
     font-size: 20px;
     font-style: bold;
@@ -47,4 +116,13 @@
     margin-left: 13px;
     transform: rotate(270deg);
 
+}
+
+#img_messages3{
+    filter: invert(1);
+    height: auto; 
+    max-width: 5%;
+    margin-left: 13px;
+    transform: rotate(90deg);
+    display: none;
 }
