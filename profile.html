@@ -9,35 +9,27 @@
   </head>
   <body class="light-mode">
     <nav class="navbar">
-      <ul>
-        <li><a href="index.html" class="home-btn">Home</a></li>
-        <li>
-          <button id="themeToggle" class="theme-toggle-btn">
-            🌙 Dark Mode
-          </button>
-        </li>
-      </ul>
+        <ul>
+            <li><a href="index.html" class="home-btn">Home</a></li>
+            <li>
+                <button id="themeToggle" class="theme-toggle-btn" type="button">🌙 </button>
+            </li>
+        </ul>
     </nav>
 
     <div class="profile-container">
-      <h1>User Profile</h1>
-      <div class="profile-card">
-        <form id="profileForm">
-          <div class="profile-pic-container">
-            <div class="profile-pic">
-              <img src="dp.jpg" alt="Profile picture" id="profileImage" />
-              <div class="hover-overlay">
-                <label for="profilePicInput">Change Picture</label>
-              </div>
-            </div>
-            <input
-              type="file"
-              id="profilePicInput"
-              accept="image/*"
-              onchange="loadProfileImage(event)"
-              style="display: none"
-            />
-          </div>
+        <h1>User Profile</h1>
+        <div class="profile-card">
+            <form id="profileForm">
+                <div class="profile-pic-container">
+                    <div class="profile-pic">
+                        <img src="public/dp.jpg" alt="" id="profileImage">
+                        <div class="hover-overlay">
+                            <label for="profilePicInput">Change Picture</label>
+                        </div>
+                    </div>
+                    <input type="file" id="profilePicInput" accept="image/*" onchange="loadProfileImage(event)" style="display:none;">
+                </div>
 
           <div class="form-group">
             <label for="name">Name:</label>

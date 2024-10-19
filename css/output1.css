@@ -84,14 +84,6 @@ hr {
   /* 3 */
 }
 
-.active {
-  background-color: #1b1d1f; /* Highlight color */
-  color: white; /* Text color */
-  border-radius: 9999px; /* Make it fully rounded */
-}
-
-
-
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
@@ -1112,4 +1104,62 @@ video {
 
 .hover\:w-full:hover {
   width: 100%; /* Sets width to 100% on hover */
+}
+/* Hover Effects */
+.hover\:bg-blue-500:hover {
+  background-color: #3b82f6; /* Blue color on hover */
+}
+
+.hover\:text-white:hover {
+  color: #fff; /* White text on hover */
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Transition Effects */
+.transition {
+  transition: all 0.3s ease-in-out; /* Smooth transitions for all properties */
+}
+
+/* Example transition on hover for buttons */
+.button {
+  padding: 0.5rem 1rem;
+  background-color: #1da1f2;
+  color: #fff;
+  border-radius: 9999px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+  background-color: #0d8bdf;
+  transform: scale(1.1); /* Slightly grow on hover */
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Example keyframe animation for logo or sections */
+.logo {
+  width: 150px;
+  margin: 0 auto;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Example of adding animations to section on load */
+.section {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
