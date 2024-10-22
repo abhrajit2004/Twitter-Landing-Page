@@ -12,9 +12,106 @@
     <link rel="stylesheet" href="css/output.css" />
     <link rel="stylesheet" href="css/messages.css">
     <script src="messages.js"></script> 
+    <style>
+      /* Add styles for the hamburger menu and responsive design */
+      @media (max-width: 768px) {
+        .left-sidebar {
+          display: none; /* Hides the sidebar on small screens */
+        }
+        .hamburger {
+          display: block;
+          cursor: pointer;
+        }
+        .hamburger-menu {
+          display: none;
+          flex-direction: column;
+          background-color: black;
+          padding: 20px;
+          position: absolute;
+          top: 50px;
+          left: 10px;
+          width: 250px;
+          z-index: 1000;
+          border-radius: 10px;
+        }
+        .hamburger-menu.show {
+          display: flex; /* Shows the hamburger menu when toggled */
+        }
+        .hamburger-line {
+          width: 25px;
+          height: 3px;
+          background-color: white;
+          margin: 5px;
+        }
+        /* Make the content wider when the sidebar is hidden */
+        .main-content {
+          width: 100%; /* Change: Full width when sidebar is hidden */
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hamburger {
+          display: none; /* Hides the hamburger on larger screens */
+        }
+        .hamburger-menu{
+          display: none;
+        }
+        .main-content {
+          width: calc(100% - 250px); /* Adjust width based on sidebar size */
+        }
+      }
+
+      .main-content {
+        padding: 20px;
+        transition: width 0.3s; /* Smooth transition for width change */
+      }
+    </style>
+
   </head>
   <body class="bg-black min-h-screen text-white">
-    
+    <!-- Hamburger icon for smaller screens -->
+    <div class="hamburger" id="hamburger">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+
+    <!-- Hamburger menu options (will have the same options as the sidebar) -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <ul class="flex flex-col text-xl font-medium">
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-3 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">home</span>Home
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">search</span>Explore
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">notifications</span>Notifications
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">email</span>Messages
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">chat</span>Grok
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">lists</span>Lists
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">bookmarks</span>Premium
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">person</span><a href="profile.html">Profile</a>
+        </li>
+        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-3xl">more</span>More
+        </li>
+        <li class="flex items-center gap-3 w-full cursor-pointer p-3">
+          <button class="bg-[#1d9bf0] hover:bg-[#1a8cd8] px224 py-4 rounded-full w-full p-3">Post</button>
+        </li>
+      </ul>
+    </div>
+
     
     <!-- messgaes start -->
     <div id="messages">
@@ -516,6 +613,13 @@ messages.style.top='93%';
 up_button.style.display="flex";
 down_button.style.display="none";
 }
+// JavaScript to toggle the hamburger menu
+const hamburger = document.getElementById("hamburger");
+const hamburgerMenu = document.getElementById("hamburgerMenu");
+
+hamburger.addEventListener("click", function () {
+  hamburgerMenu.classList.toggle("show"); // Toggle visibility of the hamburger menu
+});
 
   </script>  
   </body>
