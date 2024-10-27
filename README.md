@@ -38,6 +38,30 @@ Presenting A Twitter Landing Page Clone done using HTML and Tailwind CSS.
    npm run dev
    ```
 
+# Testing Via docker
+> make sure you have docker installed
+
+### steps 
+1. **Clone your forked repository**:
+   
+   ```bash
+   git clone <your forked repository link>
+   ```
+2. **Change directory**:
+
+    ```bash
+    cd Twitter-Landing-Page
+    ```
+4. **Building the Image**:
+   
+    ```bash
+    docker build -t my-twitter-app .
+   ```
+3. **Run the container**:
+   
+    ```bash
+    docker run -p 5173:5173 my-twitter-app
+   ```
 # How to make a Pull Request
 1. **Clone your forked repository**:
    
