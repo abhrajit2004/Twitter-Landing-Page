@@ -69,6 +69,27 @@
         padding: 20px;
         transition: width 0.3s; /* Smooth transition for width change */
       }
+      .scroll-to-top {
+    position: fixed;
+    bottom: 65px;
+    right: 30px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 12px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+    height: 48px;
+    width: 48px;
+  }
+
+  .scroll-to-top.show {
+    display: block; /* Show when the class 'show' is added */
+  }
     </style>
 
   </head>
@@ -626,5 +647,28 @@ hamburger.addEventListener("click", function () {
 });
 
   </script>  
+  
+
+  <button class="scroll-to-top" onclick="scrollToTop()"><img src="up_arrow.png"up" width="32px"></button>
+
+<script>
+  // Show the button when scrolled down
+  window.onscroll = function() {
+    const scrollButton = document.querySelector('.scroll-to-top');
+    if (document.documentElement.scrollTop > 100) {
+      scrollButton.classList.add('show');
+    } else {
+      scrollButton.classList.remove('show');
+    }
+  };
+
+  // Scroll to top when the button is clicked
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+</script>
   </body>
 </html>
