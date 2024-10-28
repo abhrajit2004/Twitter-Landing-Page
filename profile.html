@@ -3,55 +3,346 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Profile Page</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="profile.js" defer></script>
+    <title>Home / X</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="css/output.css" />
+    <style>
+      /* Add styles for the hamburger menu and responsive design */
+      @media (max-width: 768px) {
+        .left-sidebar {
+          display: none; /* Hides the sidebar on small screens */
+        }
+        .hamburger {
+          display: block;
+          cursor: pointer;
+          position:fixed;
+          z-index: 888;
+        }
+        .hamburger-menu {
+          display: none;
+          flex-direction: column;
+          background-color: black;
+          padding: 20px;
+          position: absolute;
+          top: 25px;
+          left: 10px;
+          width: 250px;
+          z-index: 1000;
+          border-radius: 10px;
+        }
+        .hamburger-menu.show {
+          display: flex; /* Shows the hamburger menu when toggled */
+          height: 100vh;
+          position: fixed;  
+        }
+        .hamburger-line {
+          width: 25px;
+          height: 3px;
+          background-color: white;
+          margin: 5px;
+        }
+        /* Make the content wider when the sidebar is hidden */
+        .main-content {
+          width: 100%; /* Change: Full width when sidebar is hidden */
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hamburger {
+          display: none; /* Hides the hamburger on larger screens */
+        }
+        .hamburger-menu{
+          display: none;
+        }
+        .main-content {
+          width: calc(100% - 250px); /* Adjust width based on sidebar size */
+        }
+      }
+
+      .main-content {
+        padding: 20px;
+        transition: width 0.3s; /* Smooth transition for width change */
+      }
+    </style>
+
   </head>
-  <body class="light-mode">
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html" class="home-btn">Home</a></li>
-            <li>
-                <button id="themeToggle" class="theme-toggle-btn" type="button">🌙 </button>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="profile-container">
-        <h1>User Profile</h1>
-        <div class="profile-card">
-            <form id="profileForm">
-                <div class="profile-pic-container">
-                    <div class="profile-pic">
-                        <img src="public/dp.jpg" alt="" id="profileImage">
-                        <div class="hover-overlay">
-                            <label for="profilePicInput">Change Picture</label>
-                        </div>
-                    </div>
-                    <input type="file" id="profilePicInput" accept="image/*" onchange="loadProfileImage(event)" style="display:none;">
-                </div>
-
-          <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" value="Abhrajit Gupta" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" value="abhrajit@example.com" />
-          </div>
-          <div class="form-group">
-            <label for="bio">Bio:</label>
-            <textarea id="bio" rows="4">
-I am a web developer who loves to build amazing websites.</textarea
-            >
-          </div>
-          <button type="submit" class="update-btn">Update Profile</button>
-          <p id="updateSuccessMessage" style="display: none">
-            Profile updated successfully!
-          </p>
-        </form>
-      </div>
+  <body class="bg-black min-h-screen text-white">
+    <!-- Hamburger icon for smaller screens -->
+    <div class="hamburger" id="hamburger">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
     </div>
 
+    <!-- Hamburger menu options (will have the same options as the sidebar) -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <ul class="flex flex-col text-xl font-medium">
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">home</span>Home
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">search</span>Explore
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">notifications</span>Notifications
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">email</span>Messages
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">chat</span>Grok
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">lists</span>Lists
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">bookmarks</span>Premium
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">person</span><a href="profile.html">Profile</a>
+        </li>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">more</span>More
+        </li>
+        <li class="flex items-center gap-3 w-full cursor-pointer p-3">
+          <button type="button" class="bg-[#1d9bf0] hover:bg-[#68c3ff] py-2 rounded-full w-full p-3">Post</button>
+        </li>
+      </ul>
+    </div>
+
+    
+    <div class="flex flex-row container mx-auto">
+      <div class="left-sidebar h-full">
+        <div class="flex justify-between flex-col h-full">
+          <div>
+            <div class="invert logo mx-5 my-3 w-full">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                class="w-8 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp r-1nao33i r-16y2uox r-8kz0gk"
+              >
+                <g>
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <div class="sidebar w-full">
+              <ul class="flex flex-col text-xl font-medium">
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">home</span
+                  >Home
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">search</span
+                  >Explore
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >notifications</span
+                  >Notifications
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">email</span
+                  >Messages
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">chat</span
+                  >Grok
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">group</span
+                  ><a href="communities.html">Communities</a>
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">lists</span
+                  >Lists
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >bookmarks</span
+                  >Premium
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">person</span
+                  ><a href="profile.html">Profile</a>
+                </li>
+                <li
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                >
+                  <span class="material-symbols-outlined text-2xl">more</span
+                  >More
+                </li>
+                <li class="flex items-center gap-3 w-full cursor-pointer p-3">
+                  <button
+                    class="bg-[#1d9bf0] hover:bg-[#1a8cd8] py-2 rounded-full w-full p-3"
+                  >
+                    Post
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-4 w-full">
+            <div
+              class="flex items-center gap-3 hover:bg-gray-900 cursor-pointer p-3 w-full hover:rounded-full transition-all"
+            >
+              <img class="rounded-full size-8" src="public/dp.jpg" alt="..." />
+              <a href="profile.html">
+                <div class="aboutitem">
+                  <div class="font-medium text-md">Abhrajit Gupta</div>
+                  <div class="text-sm text-gray-500">@abhrajit_gupta</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="second w-full border-[1px] border-x-[#2f3336] border-y-[#2f3336]"
+      >
+        <div class="top flex px-3 relative cursor-pointer">
+          <span class="material-symbols-outlined left bg-red-1 flex justify-center px-4 py-2">
+            arrow_back
+          </span>
+          <div class="bg-green-4001 flex justify-center">
+            <div class="flex flex-col px-5">
+              <span class="font-bold text-xl pl-3">Abhrajit Gupta</span>
+              <span class="text-sm font-thin">0 posts</span>
+            </div>
+          </div>
+        </div>
+        <hr class="border-x-[#2f3336] border-y-[#2f3336]" />
+        <div class="whatishap flex gap-4">
+          <div style="height: 200px; width: 100%; background-color: rgba(75, 74, 74, 0.658);"></div>
+        </div>
+        <hr class="border-x-[#2f3336] border-y-[#2f3336]" />
+        <div class="px-7 relative" style="padding-top: 12%;">
+          <img src="/public/dp.jpg" alt="Profile Picture" class="rounded-full aspect-square" style="height: 120px; position: absolute; top: -25%; border: 4px solid black;">
+          <div class="flex flex-col">
+            <h1 class="text-2xl font-bold">Abhrajit Gupta</h1>
+            <h2 class="text-sm text-gray-500">&#64;abhrajit_gupta</h2>
+            <h2 class="text-gray-500 my-2">Joined October 2024</h2>
+            <div class="my-2 flex text-sm gap-4 text-gray-500">
+              <p><span class="text-white">1</span> Following </p>
+              <p><span class="text-white">1</span> Followers </p>
+            </div>
+          </div>
+          <div class="flex my-1 text-gray-500" style="column-gap: 8%;">
+            <div class="font-bold text-white cursor-pointer" style="padding-bottom: 16px;">Posts
+              <div
+            class="absolute h-1 bottom-0 bg-[#1d9bf0] rounded-full z-10" style="width: 40px;"
+          ></div>
+            </div>
+            <div class="font-bold cursor-pointer" style="padding-bottom: 16px;">Replies</div>
+            <div class="font-bold cursor-pointer" style="padding-bottom: 16px;">Highlights</div>
+            <div class="font-bold cursor-pointer" style="padding-bottom: 16px;">Articles</div>
+            <div class="font-bold cursor-pointer" style="padding-bottom: 16px;">Media</div>
+            <div class="font-bold cursor-pointer" style="padding-bottom: 16px;">Likes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="third">
+        <div class="search flex justify-center mx-6 my-3">
+          <input
+            type="text"
+            class="rounded-full bg-[#16181c] px-4 py-2 w-96"
+            placeholder="Search"
+          />
+        </div>
+        <!-- <div class="premium bg-gray-800 w-96 flex flex-col px-4 py-2 m-auto rounded-xl gap-2">
+          <h1 class="font-bold text-2xl">Subscribe to Premium</h1>
+          <div>Subscribe to unlock new features and if eligible, receive a share of ads revenue.</div>
+          <button class="btn bg-blue-500 w-fit px-4 py-2 rounded-full font-bold my-1 hover:bg-blue-600">Subscribe</button>
+        </div> -->
+        <div class="who bg-[#16181c] rounded-xl my-3 mx-6 w-96">
+          <h1 class="text-xl font-bold p-3">You might like</h1>
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer flex transition-all"
+          >
+            <img class="rounded-full" src="public/item1.jpg" alt="..." />
+            <div class="aboutitem mx-3">
+              <div class="font-bold">Neeraj Walia</div>
+              <div class="text-sm text-gray-500">@ezSnippet</div>
+            </div>
+            <!-- <button class="bg-white text-black font-medium rounded-full w-24 mx-8">Follow</button> -->
+          </div>
+
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer hover:rounded-xl transition-all"
+          >
+            <div class="text-blue-400 hover:underline">Show more</div>
+          </div>
+        </div>
+        <div class="whats bg-[#16181c] rounded-xl my-3 mx-6 w-96">
+          <h1 class="text-xl font-bold p-3">What's happening</h1>
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer transition-all"
+          >
+            <div class="font-bold text-sm text-gray-500">Trending in India</div>
+            <div class="font-bold">#RepublicDayAtNSEC</div>
+            <div class="font-bold text-sm text-gray-500">2M posts</div>
+          </div>
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer transition-all"
+          >
+            <div class="font-bold text-sm text-gray-500">Trending in India</div>
+            <div class="font-bold">#AnimalOnNetflix</div>
+            <div class="font-bold text-sm text-gray-500">900K posts</div>
+          </div>
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer transition-all"
+          >
+            <div class="font-bold text-sm text-gray-500">Trending in India</div>
+            <div class="font-bold">#Orry</div>
+            <div class="font-bold text-sm text-gray-500">700K posts</div>
+          </div>
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer transition-all"
+          >
+            <div class="font-bold text-sm text-gray-500">Trending in India</div>
+            <div class="font-bold">#Fighter</div>
+            <div class="font-bold text-sm text-gray-500">600K posts</div>
+          </div>
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer transition-all"
+          >
+            <div class="font-bold text-sm text-gray-500">Trending in India</div>
+            <div class="font-bold">#SigmaCourse</div>
+            <div class="font-bold text-sm text-gray-500">500K posts</div>
+          </div>
+          <div
+            class="item px-4 p-3 hover:bg-gray-700 cursor-pointer hover:rounded-xl transition-all"
+          >
+            <div class="text-blue-400 hover:underline">Show more</div>
+          </div>
+        </div>
+      </div>
+    </div> 
   </body>
 </html>
