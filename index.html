@@ -21,6 +21,8 @@
         .hamburger {
           display: block;
           cursor: pointer;
+          position:fixed;
+          z-index: 888;
         }
         .hamburger-menu {
           display: none;
@@ -28,7 +30,7 @@
           background-color: black;
           padding: 20px;
           position: absolute;
-          top: 50px;
+          top: 25px;
           left: 10px;
           width: 250px;
           z-index: 1000;
@@ -36,6 +38,8 @@
         }
         .hamburger-menu.show {
           display: flex; /* Shows the hamburger menu when toggled */
+          height: 100vh;
+          position: fixed;  
         }
         .hamburger-line {
           width: 25px;
@@ -82,35 +86,35 @@
     <!-- Hamburger menu options (will have the same options as the sidebar) -->
     <div class="hamburger-menu" id="hamburgerMenu">
       <ul class="flex flex-col text-xl font-medium">
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-3 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">home</span>Home
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">home</span>Home
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">search</span>Explore
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">search</span>Explore
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">notifications</span>Notifications
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">notifications</span>Notifications
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">email</span>Messages
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">email</span>Messages
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">chat</span>Grok
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">chat</span>Grok
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">lists</span>Lists
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">lists</span>Lists
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">bookmarks</span>Premium
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">bookmarks</span>Premium
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">person</span><a href="profile.html">Profile</a>
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">person</span><a href="profile.html">Profile</a>
         </li>
-        <li class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
-          <span class="material-symbols-outlined text-3xl">more</span>More
+        <li class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all">
+          <span class="material-symbols-outlined text-2xl">more</span>More
         </li>
         <li class="flex items-center gap-3 w-full cursor-pointer p-3">
-          <button class="bg-[#1d9bf0] hover:bg-[#1a8cd8] px224 py-4 rounded-full w-full p-3">Post</button>
+          <button type="button" class="bg-[#1d9bf0] hover:bg-[#68c3ff] py-2 rounded-full w-full p-3">Post</button>
         </li>
       </ul>
     </div>
@@ -166,70 +170,70 @@
             <div class="sidebar w-full">
               <ul class="flex flex-col text-xl font-medium">
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-3 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">home</span
+                  <span class="material-symbols-outlined text-2xl">home</span
                   >Home
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">search</span
+                  <span class="material-symbols-outlined text-2xl">search</span
                   >Explore
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl"
+                  <span class="material-symbols-outlined text-2xl"
                     >notifications</span
                   >Notifications
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">email</span
+                  <span class="material-symbols-outlined text-2xl">email</span
                   >Messages
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">chat</span
+                  <span class="material-symbols-outlined text-2xl">chat</span
                   >Grok
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">group</span
+                  <span class="material-symbols-outlined text-2xl">group</span
                   ><a href="communities.html">Communities</a>
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">lists</span
+                  <span class="material-symbols-outlined text-2xl">lists</span
                   >Lists
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl"
+                  <span class="material-symbols-outlined text-2xl"
                     >bookmarks</span
                   >Premium
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">person</span
+                  <span class="material-symbols-outlined text-2xl">person</span
                   ><a href="profile.html">Profile</a>
                 </li>
                 <li
-                  class="flex items-center gap-3 w-fit hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
+                  class="flex items-center gap-3 w-full hover:bg-gray-900 cursor-pointer px-5 py-2 hover:rounded-full transition-all"
                 >
-                  <span class="material-symbols-outlined text-3xl">more</span
+                  <span class="material-symbols-outlined text-2xl">more</span
                   >More
                 </li>
                 <li class="flex items-center gap-3 w-full cursor-pointer p-3">
                   <button
-                    class="bg-[#1d9bf0] hover:bg-[#1a8cd8] px224 py-4 rounded-full w-full p-3"
+                    class="bg-[#1d9bf0] hover:bg-[#1a8cd8] py-2 rounded-full w-full p-3"
                   >
                     Post
                   </button>
